@@ -1,0 +1,8 @@
+use weblab;
+CREATE TABLE IF NOT EXISTS `webuser` (
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  `name` VARCHAR(64) NOT NULL,
+  `password` VARCHAR(64) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
