@@ -10,7 +10,6 @@ class MysqlConnector():
         conn = mysql.connector.connect(
             host="0.0.0.0",
             user="root",
-            passwd="123456",
             database="weblab"
         )
         self.conn = conn
