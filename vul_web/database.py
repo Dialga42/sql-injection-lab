@@ -6,7 +6,6 @@ class MysqlConnector():
     connector = None
 
     def __init__(self):
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sql_injection.settings')
         print("begin database connection")
         conn = mysql.connector.connect(
             host="0.0.0.0",
