@@ -67,6 +67,8 @@ python3 manage.py runserver 0.0.0.0:8000
 
 ![image-20200418233220334](img/normal_result.png)
 
+### Wrong Password
+
 - Try login with 
 
 ```
@@ -78,7 +80,7 @@ password: 123457
 
 ![image-20200418233220334](img/uncorrect_result.png)
 
-### SQL Injection
+## SQL Injection
 
 - Try login with
 
@@ -87,5 +89,6 @@ name: 1' OR '2'='2
 password: 1' OR '2'='2
 ```
 
+![image-20200418233220334](img/sql_injection.png)
 
-
+![image-20200418233220334](img/sql_injection_result.png)
