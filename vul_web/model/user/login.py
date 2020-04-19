@@ -11,6 +11,5 @@ def login(user, password):
     u, p = None, None
     for (_, u, p) in cursor:
         print("user=%s, password=%s"%(u, p))
-        break
 
     return (u, p)
