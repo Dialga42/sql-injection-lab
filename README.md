@@ -1,7 +1,15 @@
 SQL Injection Attack
 ===
 
+## Discription
+
+- Set up a web server on a GENI host with a form that is vulnerable to SQL injection, and show how an attacker could gain access to or modify database records using SQL injection. 
+- Note: set up your GENI host with a "publicly routable IP" when reserving resources, so that you will be able to reach your web server over the public Internet.
+
 ## Environment Settings
+
+- Set up the GENI host with a "publicly routable IP" before reserving resources for the site
+  <img src="img/set_publicly_routable_IP.png">
 
 - Install necessary service
 
