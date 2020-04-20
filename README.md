@@ -32,6 +32,7 @@ mysql> create database weblab;
 mysql> source scripts/InitPrivilege.sql;
 mysql> source scripts/CreateUserTable.sql;
 mysql> source scripts/InsertUserData.sql;
+mysql> exit;
 ```
 
 - Init python environment
