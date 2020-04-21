@@ -119,4 +119,4 @@ password: 1' OR '2'='2
   >INSERT INTO webuser (name, password) VALUES ('Digong_Jiang', 'easyPassword');
   >```
   >The returned pair is (Digong_Jiang,easyPassword) </br>   
-  >Finally, the attacker using 1' OR '2'='2 as username and password is regarded as Digong_Jiang
+  >Finally, the attacker using 1' OR '2'='2 as username and password is regarded to login as Digong_Jiang
