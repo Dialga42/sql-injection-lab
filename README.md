@@ -100,7 +100,7 @@ password: 1' OR '2'='2
 ![image-20200418233220334](img/sql_injection.png)
 
 ![image-20200418233220334](img/sql_injection_result.png)
- - Explanation
+- Explanation
   >In <i>vul_web/model/user/login.py</i>, the sql statement to query whether the input username and password is valid is
   >```
   >"SELECT * FROM webuser WHERE (name = '" + user + "') and (password = '" + password + "');"
