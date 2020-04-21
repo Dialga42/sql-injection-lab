@@ -3,8 +3,14 @@ SQL Injection Attack
 
 ## Environment Settings
 
-- Set up the GENI host with a "publicly routable IP" before reserving resources for the site
+- Add resources: one host (VM)
+  
+- Set up the host with a "publicly routable IP"
   <img src="img/set_publicly_routable_IP.png">
+
+- Reserve resources for the site
+  
+- Login to the node by ssh
 
 - Install necessary service
 
@@ -26,7 +32,7 @@ git clone https://github.com/zuquan-song/sql-injection-lab.git
 cd sql-injection-lab
 ```
 
-- Install mysql & init data
+- Install mysql & initialize data
 
 ```
 # login mysql & create initial data
@@ -38,7 +44,7 @@ mysql> source scripts/InsertUserData.sql;
 mysql> exit;
 ```
 
-- Init python environment
+- Initialize python environment
 ```
 # install packages
 pip3 install django
@@ -51,8 +57,6 @@ pip3 install mysql-connector
 cd vul_web/
 python3 manage.py runserver 0.0.0.0:8000
 ```
-
-
 
 ## Normal Situations
 
@@ -96,3 +100,23 @@ password: 1' OR '2'='2
 ![image-20200418233220334](img/sql_injection.png)
 
 ![image-20200418233220334](img/sql_injection_result.png)
+ - Explanation
+  >In <i>vul_web/model/user/login.py</i>, the sql statement to query whether the input username and password is valid is
+  >```
+  >"SELECT * FROM webuser WHERE (name = '" + user + "') and (password = '" + password + "');"
+  >```   
+  >In this case name= "1' OR '2'='2" and password= "1' OR '2'='2"
+  >The query sql statement is
+  >```
+  >SELECT * FROM webuser WHERE (name = '1' OR '2'='2') and (password = '1' OR '2'='2');
+  >```
+  >'2'='2' will always be true  
+  >And the database will return all the (username,password) pairs </br>  
+  >In <i>vul_web/model/user/login.py</i>, the returned (username,password) pair after the for loop will be the last pair </br>  
+  >According to <i>scripts/InsertUserData.sql</i>, there are only two pairs of data
+  >```
+  >INSERT INTO webuser (name, password) VALUES ('Zuquan_Song', '123456');
+  >INSERT INTO webuser (name, password) VALUES ('Digong_Jiang', 'easyPassword');
+  >```
+  >The returned pair is (Digong_Jiang,easyPassword) </br>   
+  >Finally, the attacker using 1' OR '2'='2 as username and password is regarded as Digong_Jiang
