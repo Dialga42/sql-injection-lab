@@ -1,6 +1,10 @@
 SQL Injection Attack
 ===
 
+## Background
+
+SQL injection is a code injection technique, used to attack data-driven applications, in which malicious SQL statements are inserted into an entry field for excution. [^1]In this project, we aim to have a experiment to execute SQL Injection.
+
 ## Environment Settings
 
 - Install necessary service
@@ -93,3 +97,9 @@ password: 1' OR '2'='2
 ![image-20200418233220334](img/sql_injection.png)
 
 ![image-20200418233220334](img/sql_injection_result.png)
+
+
+
+## Reference
+
+[^1]: https://en.wikipedia.org/wiki/SQL_injection
