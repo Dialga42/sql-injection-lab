@@ -104,15 +104,12 @@ password: 1' OR '2'='2
 ![image-20200418233220334](img/sql_injection.png)
 
 ![image-20200418233220334](img/sql_injection_result.png)
-<<<<<<< HEAD
-
-
 
 - Explanation
 >In <i>vul_web/model/user/login.py</i>, the sql statement to query whether the input username and password is valid is
 >```
 >"SELECT * FROM webuser WHERE (name = '" + user + "') and (password = '" + password + "');"
->```   
+>```
 >In this case name= "1' OR '2'='2" and password= "1' OR '2'='2"
 >The query sql statement is
 >```
@@ -129,6 +126,5 @@ password: 1' OR '2'='2
 >The returned pair is (Digong_Jiang,easyPassword) </br>   
 >Finally, the attacker using 1' OR '2'='2 as username and password is regarded to login as Digong_Jiang
 
-## Reference
-
 [^1]: https://en.wikipedia.org/wiki/SQL_injection
+
